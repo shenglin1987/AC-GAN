@@ -142,7 +142,8 @@ def generator(z, labels):
         labels_one_hot = tf.one_hot(labels, FLAGS.n_classes)
 
         # concat z and labels
-        z_labels = tf.concat(1, [z, labels_one_hot])
+        #z_labels = tf.concat(1, [z, labels_one_hot])
+        z_labels = tf.concat( [z, labels_one_hot], 1)
 
         # project z and reshape
         oh, ow = FLAGS.output_height, FLAGS.output_width
